@@ -162,6 +162,7 @@ body {
 
 /* team */
 
+
 .team {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -169,6 +170,7 @@ body {
     max-width: 1000px;
     margin: 40px auto;
     padding: 20px;
+    width: 100%;
 }
 
 .member {
@@ -181,13 +183,19 @@ body {
 
 .avatar-image {
     display: block;
-    width: 100%;
-    max-width: 600px;
+    width: 95%;
+    max-width: 500px;
     height: auto;
     margin: 0 auto;
     border-radius: 5%;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     will-change: transform;
+    margin-bottom: 15px;
+}
+
+.avatar-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .member h3 {
