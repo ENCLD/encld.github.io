@@ -202,6 +202,19 @@ body {
     color: var(--primary-text);
 }
 
+.about-us p,
+.ambitions p {
+    color: #d1d5db;
+}
+
+.ambitions h3 {
+    color: #d1d5db;
+}
+
+.about-us h3 {
+    color: #d1d5db;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     .team {
