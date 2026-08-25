@@ -25,7 +25,7 @@ body {
     --background-color: #0c1012;
     --primary-text: #dcdcdc;
     --secondary-text: #565656;
-    --card-background: #1a1a1a;
+    --card-background: #2f2f2f;
     --card-border: #2a2a2a;
     --card-shadow: rgba(255, 255, 255, 0.08);
     --page-color: #0c0c0c;
@@ -109,7 +109,13 @@ body {
     font-family: Inter, system-ui, sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: var(--primary-text)
+    color: var(--primary-text);
+}
+
+.bold-text {
+    font-family: Inter, system-ui, sans-serif;
+    font-weight: 900;
+    font-style: normal;
 }
 
 /* content */
@@ -168,7 +174,7 @@ body {
 .member {
     text-align: center;
     padding: 25px 15px;
-    background: #fff;
+    background: var(--card-background);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
@@ -186,12 +192,12 @@ body {
 
 .member h3 {
     margin: 8px 0;
-    color: #222;
+    color: #fafafa;
 }
 
 .member p {
     margin: 0;
-    color: #777;
+    color: aliceblue;
 }
 
 .header-title {
