@@ -165,17 +165,18 @@ body {
 
 .team {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 15px;
     max-width: 1000px;
     margin: 40px auto;
     padding: 20px;
     width: 100%;
+    min-width: 0;
 }
 
 .member {
     text-align: center;
-    padding: 25px 15px;
+    padding: 25px 12px;
     background: var(--card-background);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -183,14 +184,14 @@ body {
 
 .avatar-image {
     display: block;
-    width: 95%;
-    max-width: 500px;
-    height: auto;
-    margin: 0 auto;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 auto 15px;
     border-radius: 5%;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     will-change: transform;
-    margin-bottom: 15px;
 }
 
 .avatar-image:hover {
@@ -200,12 +201,17 @@ body {
 
 .member h3 {
     margin: 8px 0;
-    color: #fafafa;
+    color: #e0e0e0;
+    font-weight: 700;
+    font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+    white-space: nowrap;
 }
 
 .member p {
     margin: 0;
     color: aliceblue;
+    font-size: 0.95rem;
+    line-height: 1.35;
 }
 
 .header-title {
@@ -220,23 +226,28 @@ body {
 .ambitions p {
     color: #d1d5db;
     margin-top: 5px;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
-.ambitions h3 {
-    color: #d1d5db;
-    margin-bottom: 0;
-}
-
+.ambitions h3,
 .about-us h3 {
     color: #d1d5db;
-    margin-bottom: 0;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    font-weight: 500;
+    text-decoration: none;
+    width: fit-content;
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 /* Mobile */
+
 @media (max-width: 768px) {
     .team {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .content-container {
         padding: 10px 20px;
     }
@@ -247,6 +258,4 @@ body {
         grid-template-columns: 1fr;
     }
 }
-
-
 
