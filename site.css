@@ -219,14 +219,17 @@ body {
 .about-us p,
 .ambitions p {
     color: #d1d5db;
+    margin-top: 5px;
 }
 
 .ambitions h3 {
     color: #d1d5db;
+    margin-bottom: 0;
 }
 
 .about-us h3 {
     color: #d1d5db;
+    margin-bottom: 0;
 }
 
 /* Mobile */
