@@ -3,42 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EINBYTE</title>
+    <title>EINBYTE &mdash; Prosjekter</title>
     <link rel="stylesheet" href="site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Tiny5&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <nav class="nav-bar">
         <div class="nav-inner">
             <a href="index.html" class="logo">EINBYTE</a>
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="&Aring;pne meny" aria-expanded="false" aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links" id="navMenu">
-                <a href="index.html" class="home">Hjem</a>
+                <a href="index.html">Hjem</a>
                 <a href="projects.html" class="active">Prosjekter</a>
-                <a href="about.html" class="about">Om oss</a>
+                <a href="about.html">Om oss</a>
             </div>
         </div>
     </nav>
 
     <main class="content-container">
-        <header class="page-header">
-            <h2 class="header-title">Prosjekter</h2>
+        <header class="hero">
+            <span class="eyebrow">Byggeloggen</span>
+            <h2 class="header-title" style="padding-top:0;">Prosjekter</h2>
         </header>
 
-        <section class="projects-section">
-            <div class="projects-grid">
+        <section class="projects-section section-panel">
+            <div class="projects-grid projects-container">
                 <div class="project-card">
-                    <h3>Prosjekt "SOV"</h3>
-                    <p>"SOV" er et prosjekt som tar for seg det viktigste som...</p>
+                    <h3 class="header-title" style="padding:0 0 8px; text-align:left;">Prosjekt &quot;SOV&quot;</h3>
+                    <p class="normal-text">&quot;SOV&quot; er et prosjekt som tar for seg det viktigste som...</p>
                 </div>
             </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">EINBYTE</a>
+                    <p class="footer-tagline">Utviklerteam som bygger og drifter digitale l&oslash;sninger &mdash; fra infrastruktur til design.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Naviger</h4>
+                        <a href="index.html">Hjem</a>
+                        <a href="projects.html">Prosjekter</a>
+                        <a href="about.html">Om oss</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Team</h4>
+                        <a href="profile-arild.html">Arild</a>
+                        <a href="profile-fahrtin.html">Fahrtin</a>
+                        <a href="profile-einar.html">Einar</a>
+                        <a href="profile-jonas.html">Jonas</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 EINBYTE. Alle rettigheter reservert.</span>
+                <span class="dots"><span></span><span></span><span></span></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="site.js" defer></script>
 </body>
 </html>
