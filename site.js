@@ -36,3 +36,26 @@
         if (event.key === "Escape") closeMenu();
     });
 })();
+
+(function () {
+    var critter = document.getElementById("critter");
+    if (!critter) return;
+
+    var squares = Array.prototype.slice.call(critter.querySelectorAll(".critter-square"));
+
+    squares.forEach(function (square, i) {
+        square.addEventListener("mouseenter", function () {
+            squares.forEach(function (other, j) {
+                var dist = Math.abs(i - j);
+                other.classList.toggle("is-jump", dist === 0);
+                other.classList.toggle("is-jump-near", dist === 1);
+            });
+        });
+
+        square.addEventListener("mouseleave", function () {
+            squares.forEach(function (other) {
+                other.classList.remove("is-jump", "is-jump-near");
+            });
+        });
+    });
+})();

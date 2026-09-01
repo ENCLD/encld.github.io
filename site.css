@@ -272,6 +272,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 15px var(--card-shadow);
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    min-height: stretch;
 }
 
 .member-link:hover .member,
@@ -530,6 +531,71 @@ body {
     font-family: var(--mono-font);
     font-size: 0.78rem;
     letter-spacing: 0.04em;
+}
+
+/* Critter (tusenbein) */
+
+.critter-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-top: 36px;
+}
+
+.critter {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 4px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.critter-square {
+    width: 13px;
+    height: 13px;
+    background: var(--accent);
+    opacity: 0.5;
+    border-radius: 3px;
+    cursor: default;
+    transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.18s ease;
+}
+
+.critter-head {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    opacity: 1;
+    box-shadow: 0 0 10px 1px var(--accent-dim);
+}
+
+.critter-head::before,
+.critter-head::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    width: 3px;
+    height: 3px;
+    border-radius: 1px;
+    background: var(--page-color);
+}
+
+.critter-head::before {
+    left: 4px;
+}
+
+.critter-head::after {
+    left: 11px;
+}
+
+.critter-square.is-jump {
+    transform: translateY(-14px);
+    opacity: 1;
+}
+
+.critter-square.is-jump-near {
+    transform: translateY(-6px);
+    opacity: 0.8;
 }
 
 /* Value sections (Why pick us / Core values) */
