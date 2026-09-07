@@ -56,7 +56,7 @@ body {
 }
 
 .nav-inner {
-    width: min(1000px, calc(100% - 40px));
+    width: min(1200px, calc(100% - 64px));
     height: 64px;
     margin: 0 auto;
     display: flex;
@@ -210,9 +210,9 @@ body {
 /* content */
 
 .content-container {
-    width: min(1000px, calc(100% - 40px));
+    width: min(1200px, calc(100% - 64px));
     margin: 0 auto;
-    padding: 10px 100px 60px;
+    padding: 10px 32px 60px;
     background: transparent;
     flex-grow: 1;
 }
@@ -248,23 +248,30 @@ body {
 
 .team {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0,1fr));
-    gap: 15px;
-    max-width: 1000px;
+    grid-template-columns: repeat(5, minmax(0,1fr));
+    gap: 18px;
+    max-width: none;
     margin: 0 auto;
     width: 100%;
     min-width: 0;
 }
 
 .member-link {
-    display: block;
+    display: flex;
+    height: 100%;
     text-decoration: none;
     color: inherit;
     border-radius: 12px;
+    min-width: 0;
 }
 
 .member {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     text-align: center;
     padding: 25px 12px;
     background: var(--card-background);
@@ -272,7 +279,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 15px var(--card-shadow);
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    min-height: stretch;
+    overflow: hidden;
 }
 
 .member-link:hover .member,
@@ -297,6 +304,7 @@ body {
     border-radius: 8px;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     will-change: transform;
+    flex-shrink: 0;
 }
 
 .member-link:hover .avatar-image {
@@ -304,27 +312,37 @@ body {
 }
 
 .member h3 {
-    margin: 8px 0;
+    margin: 8px 0 0;
     color: #e0e0e0;
     font-weight: 700;
-    font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+    font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+    line-height: 1.25;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .member p {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
+    padding: 12px 0;
     color: var(--secondary-text);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     line-height: 1.35;
+    overflow-wrap: break-word;
 }
 
 .view-profile {
     display: inline-block;
-    margin-top: 12px;
+    margin-top: auto;
+    padding-top: 4px;
     font-family: var(--mono-font);
     font-size: 0.75rem;
     letter-spacing: 0.05em;
     color: var(--accent);
+    flex-shrink: 0;
 }
 
 .view-profile::after {
@@ -736,7 +754,7 @@ body {
 }
 
 .footer-inner {
-    width: min(1000px, calc(100% - 40px));
+    width: min(1200px, calc(100% - 64px));
     margin: 0 auto;
     padding: 40px 0 0;
 }
