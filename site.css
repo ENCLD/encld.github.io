@@ -56,7 +56,7 @@ body {
 }
 
 .nav-inner {
-    width: min(1000px, calc(100% - 40px));
+    width: min(1200px, calc(100% - 64px));
     height: 64px;
     margin: 0 auto;
     display: flex;
@@ -210,9 +210,9 @@ body {
 /* content */
 
 .content-container {
-    width: min(1000px, calc(100% - 40px));
+    width: min(1200px, calc(100% - 64px));
     margin: 0 auto;
-    padding: 10px 100px 60px;
+    padding: 10px 32px 60px;
     background: transparent;
     flex-grow: 1;
 }
@@ -248,9 +248,9 @@ body {
 
 .team {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0,1fr));
-    gap: 15px;
-    max-width: 1000px;
+    grid-template-columns: repeat(5, minmax(0,1fr));
+    gap: 18px;
+    max-width: none;
     margin: 0 auto;
     width: 100%;
     min-width: 0;
@@ -261,6 +261,7 @@ body {
     text-decoration: none;
     color: inherit;
     border-radius: 12px;
+    min-width: 0;
 }
 
 .member {
@@ -273,6 +274,7 @@ body {
     box-shadow: 0 4px 15px var(--card-shadow);
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     min-height: stretch;
+    overflow: hidden;
 }
 
 .member-link:hover .member,
@@ -307,15 +309,17 @@ body {
     margin: 8px 0;
     color: #e0e0e0;
     font-weight: 700;
-    font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+    font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+    line-height: 1.25;
     white-space: nowrap;
 }
 
 .member p {
     margin: 0;
     color: var(--secondary-text);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     line-height: 1.35;
+    overflow-wrap: break-word;
 }
 
 .view-profile {
@@ -736,7 +740,7 @@ body {
 }
 
 .footer-inner {
-    width: min(1000px, calc(100% - 40px));
+    width: min(1200px, calc(100% - 64px));
     margin: 0 auto;
     padding: 40px 0 0;
 }
