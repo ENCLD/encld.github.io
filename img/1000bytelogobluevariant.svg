@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 677.2 284.34">
   <defs>
     <style>
       .cls-1 {
@@ -29,18 +29,17 @@
       }
     </style>
   </defs>
-  <rect width="1080" height="1080"/>
-  <rect class="cls-5" x="851.88" y="351.04" width="6.42" height="71.55" transform="translate(-83.09 361.87) rotate(-22.82)"/>
-  <rect class="cls-5" x="784.82" y="351.04" width="6.42" height="71.55" transform="translate(-88.34 335.86) rotate(-22.82)"/>
-  <rect class="cls-5" x="204.1" y="424.77" width="101.28" height="101.28"/>
-  <rect class="cls-2" x="318.21" y="392.71" width="101.28" height="101.28"/>
-  <rect class="cls-5" x="432.31" y="424.77" width="101.28" height="101.28"/>
-  <rect class="cls-2" x="547.76" y="392.71" width="101.28" height="101.28"/>
-  <rect class="cls-5" x="660.51" y="424.77" width="101.28" height="101.28"/>
-  <rect class="cls-2" x="777.31" y="407.38" width="101.28" height="101.28"/>
-  <rect class="cls-4" x="838.52" y="424.77" width="26.61" height="26.61"/>
-  <text class="cls-6" transform="translate(201.4 616.75)"><tspan class="cls-5" x="0" y="0">1000</tspan><tspan class="cls-1" x="164.95" y="0">BYTE</tspan></text>
-  <rect class="cls-3" x="838.26" y="432.01" width="19.56" height="19.56"/>
-  <rect class="cls-4" x="791.56" y="424.77" width="26.61" height="26.61"/>
-  <rect class="cls-3" x="791.33" y="432.01" width="19.56" height="19.56"/>
+  <rect class="cls-5" x="650.48" y="-1.56" width="6.42" height="71.55" transform="translate(37.88 256.17) rotate(-22.82)"/>
+  <rect class="cls-5" x="583.42" y="-1.56" width="6.42" height="71.55" transform="translate(32.64 230.17) rotate(-22.82)"/>
+  <rect class="cls-5" x="2.7" y="72.17" width="101.28" height="101.28"/>
+  <rect class="cls-2" x="116.81" y="40.12" width="101.28" height="101.28"/>
+  <rect class="cls-5" x="230.91" y="72.17" width="101.28" height="101.28"/>
+  <rect class="cls-2" x="346.36" y="40.12" width="101.28" height="101.28"/>
+  <rect class="cls-5" x="459.11" y="72.17" width="101.28" height="101.28"/>
+  <rect class="cls-2" x="575.91" y="54.78" width="101.28" height="101.28"/>
+  <rect class="cls-4" x="637.12" y="72.17" width="26.61" height="26.61"/>
+  <text class="cls-6" transform="translate(0 264.15)"><tspan class="cls-5" x="0" y="0">1000</tspan><tspan class="cls-1" x="164.95" y="0">BYTE</tspan></text>
+  <rect class="cls-3" x="636.86" y="79.41" width="19.56" height="19.56"/>
+  <rect class="cls-4" x="590.16" y="72.17" width="26.61" height="26.61"/>
+  <rect class="cls-3" x="589.93" y="79.41" width="19.56" height="19.56"/>
 </svg>
