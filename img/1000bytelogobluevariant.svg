@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: 0em;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #3f61aa;
+      }
+
+      .cls-3 {
+        fill: #141414;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        fill: #e2e2e2;
+      }
+
+      .cls-6 {
+        font-family: AgencyFB-Bold, 'Agency FB';
+        font-size: 100.87px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <rect width="1080" height="1080"/>
+  <rect class="cls-5" x="851.88" y="351.04" width="6.42" height="71.55" transform="translate(-83.09 361.87) rotate(-22.82)"/>
+  <rect class="cls-5" x="784.82" y="351.04" width="6.42" height="71.55" transform="translate(-88.34 335.86) rotate(-22.82)"/>
+  <rect class="cls-5" x="204.1" y="424.77" width="101.28" height="101.28"/>
+  <rect class="cls-2" x="318.21" y="392.71" width="101.28" height="101.28"/>
+  <rect class="cls-5" x="432.31" y="424.77" width="101.28" height="101.28"/>
+  <rect class="cls-2" x="547.76" y="392.71" width="101.28" height="101.28"/>
+  <rect class="cls-5" x="660.51" y="424.77" width="101.28" height="101.28"/>
+  <rect class="cls-2" x="777.31" y="407.38" width="101.28" height="101.28"/>
+  <rect class="cls-4" x="838.52" y="424.77" width="26.61" height="26.61"/>
+  <text class="cls-6" transform="translate(201.4 616.75)"><tspan class="cls-5" x="0" y="0">1000</tspan><tspan class="cls-1" x="164.95" y="0">BYTE</tspan></text>
+  <rect class="cls-3" x="838.26" y="432.01" width="19.56" height="19.56"/>
+  <rect class="cls-4" x="791.56" y="424.77" width="26.61" height="26.61"/>
+  <rect class="cls-3" x="791.33" y="432.01" width="19.56" height="19.56"/>
+</svg>
