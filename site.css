@@ -8,20 +8,41 @@ html {
 }
 
 :root {
-    --primary-color: #101418;
-    --secondary-color: #7996ab;
-    --accent: #5eead4;
-    --accent-dim: rgba(94, 234, 212, 0.16);
-    --background-color: #0a0d10;
-    --primary-text: #e4e7ea;
-    --secondary-text: #8a94a0;
-    --card-background: #14191e;
-    --card-border: #232a30;
-    --card-border-soft: rgba(255, 255, 255, 0.06);
-    --card-shadow: rgba(0, 0, 0, 0.35);
-    --page-color: #0c0f12;
-    --panel-background: #10141a;
-    --mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    /* ---------- BASE ---------- */
+
+    --page-color: #dfe4ec;
+    --background-color: #dfe4ec;
+
+    --primary-text: #171a21;
+    --secondary-text: #4f5968;
+
+    /* ---------- BRAND ---------- */
+
+    --primary-color: #171a21;
+    --secondary-color: #667085;
+
+    --accent: #3f61aa;
+    --accent-dim: rgba(63, 97, 170, 0.15);
+
+    /* ---------- NAVBAR ---------- */
+
+    --nav-background: #30394a;
+    --nav-text: #d8dee9;
+    --nav-text-hover: #ffffff;
+
+    /* ---------- CARDS / PANELS ---------- */
+
+    --card-background: #f1f3f7;
+    --panel-background: #cfd7e4;
+
+    --card-border: #bfc7d3;
+    --card-border-soft: rgba(40, 55, 80, 0.12);
+    --card-shadow: rgba(30, 45, 70, 0.14);
+
+    /* ---------- FONTS ---------- */
+
+    --mono-font: "SFMono-Regular", Consolas,
+                 "Liberation Mono", Menlo, monospace;
 }
 
 body {
@@ -30,14 +51,12 @@ body {
     display: flex;
     flex-direction: column;
 
-    background-color: var(--page-color);
-    background-image:
-        radial-gradient(circle, rgba(94, 234, 212, 0.10) 1px, transparent 1.2px),
-        linear-gradient(90deg, rgba(121, 150, 171, 0.025) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(121, 150, 171, 0.025) 1px, transparent 1px);
-    background-size: 32px 32px, 32px 32px, 32px 32px;
-    background-position: 0 0, 0 0, 0 0;
-    background-attachment: fixed;
+    background:
+        linear-gradient(
+            180deg,
+            #e5e9f0 0%,
+            #dce2eb 100%
+        );
 
     color: var(--primary-text);
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -50,41 +69,71 @@ body {
     top: 0;
     z-index: 100;
     width: 100%;
-    background: rgba(10, 13, 16, 0.85);
+
+    background: var(--nav-background);
     border-bottom: 1px solid var(--card-border);
+
     backdrop-filter: blur(12px);
 }
+
+
+/* ---------- Navbar innhold ---------- */
 
 .nav-inner {
     width: min(1200px, calc(100% - 64px));
     height: 64px;
     margin: 0 auto;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+
+/* ---------- Logo ---------- */
+
 .logo {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+
     font-family: "Bitcount Single", system-ui, sans-serif;
     font-size: 2rem;
     font-weight: 400;
     font-style: normal;
-    color: #fafafa;
+
+    color: var(--nav-text);
     text-decoration: none;
 }
 
 .logo::before {
     content: "";
     display: inline-block;
+
     width: 8px;
     height: 8px;
+
     border-radius: 50%;
+
     background: var(--accent);
     box-shadow: 0 0 8px 1px var(--accent-dim);
 }
+
+
+/* Ikke vis prikken dersom logoen er et bilde */
+
+.logo:has(img)::before {
+    display: none;
+}
+
+.logo-img {
+    display: block;
+    height: 34px;
+    width: auto;
+}
+
+
+/* ---------- Navigasjonslenker ---------- */
 
 .nav-links {
     display: flex;
@@ -92,59 +141,92 @@ body {
     align-items: center;
 }
 
-    .nav-links a {
-        position: relative;
-        text-decoration: none;
-        color: var(--primary-text);
-        font-weight: 500;
-        transition: color 0.2s ease-in-out;
-        border-radius: 7px;
-        padding: 8px 12px;
-    }
+.nav-links a {
+    position: relative;
 
-        .nav-links a:hover {
-            color: var(--page-color);
-            background: var(--accent);
-        }
+    padding: 8px 12px;
 
-        .nav-links a.active {
-            color: var(--accent);
-            font-weight: 600;
-        }
+    color: var(--nav-text);
+    text-decoration: none;
 
-        .nav-links a.active::after {
-            content: "";
-            position: absolute;
-            left: 12px;
-            right: 12px;
-            bottom: 2px;
-            height: 2px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
+    font-weight: 500;
+
+    border-radius: 7px;
+
+    transition:
+        color 0.2s ease-in-out,
+        background 0.2s ease-in-out;
+}
+
+
+/* Hover */
+
+.nav-links a:hover {
+    color: var(--nav-text-hover);
+    background: var(--accent);
+}
+
+
+/* Aktiv side */
+
+.nav-links a.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+
+/* Blå strek under aktiv side */
+
+.nav-links a.active::after {
+    content: "";
+
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 2px;
+
+    height: 2px;
+
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+
+/* ---------- Mobilmeny-knapp ---------- */
 
 .nav-toggle {
     display: none;
+
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     gap: 5px;
+
     width: 38px;
     height: 38px;
     padding: 0;
+
     background: transparent;
-    border: 1px solid var(--card-border);
+
+    border: 1px solid var(--nav-text);
     border-radius: 7px;
+
     cursor: pointer;
 }
 
 .nav-toggle span {
     display: block;
+
     width: 18px;
     height: 2px;
-    background: var(--primary-text);
+
+    background: var(--nav-text);
     border-radius: 2px;
-    transition: transform 0.25s ease, opacity 0.2s ease;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.2s ease;
 }
 
 .nav-toggle:hover {
@@ -444,7 +526,7 @@ body {
 
 .btn-primary {
     background: var(--accent);
-    color: #06201b;
+    color: var(--primary-color);
     border-color: var(--accent);
 }
 
@@ -485,29 +567,35 @@ body {
 }
 
 .section-panel--accent {
-    --panel-tint: rgba(94, 234, 212, 0.10);
+    --panel-tint: rgba(63, 97, 170, 0.12);
 }
 
 .section-panel--muted {
-    --panel-tint: rgba(121, 150, 171, 0.10);
+    --panel-tint: rgba(152, 164, 184, 0.10);
 }
 
 /* Section divider */
 
 .section-divider {
     display: flex;
-    align-items: center;
-    gap: 6px;
+    align-items: flex-end;
+    gap: 5px;
     justify-content: center;
     margin: 10px 0 4px;
     color: var(--secondary-text);
 }
 
 .section-divider span {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
     background: var(--secondary-color);
+}
+
+.section-divider span:nth-child(2) {
+    background: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 0 6px 1px var(--accent-dim);
 }
 
 .section-divider::before,
@@ -538,19 +626,38 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 22px 10px;
+    gap: 12px;
+    padding: 24px 14px;
+
     background: var(--card-background);
-    border: 1px dashed var(--card-border-soft);
-    border-radius: 10px;
+    border: 1px solid var(--card-border-soft);
+    border-radius: 20px;
+
     color: var(--secondary-text);
-    transition: border-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease,
+        background-color 0.22s ease;
 }
 
 .logo-tile:hover {
+    transform: translateY(-4px);
+
     border-color: var(--accent);
+
+    background: rgba(63, 97, 170, 0.06);
+
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.30),
+        0 0 0 1px var(--accent-dim),
+        0 0 20px rgba(63, 97, 170, 0.12);
+
     color: var(--accent);
 }
+
 
 .logo-tile svg {
     width: 26px;
@@ -566,7 +673,7 @@ body {
     max-height: 60px;
     object-fit: contain;
     background: #fff;
-    border-radius: 6px;
+    border-radius: 12px;
     padding: 8px 14px;
 }
 
@@ -574,6 +681,15 @@ body {
     font-family: var(--mono-font);
     font-size: 0.78rem;
     letter-spacing: 0.04em;
+}
+
+.logo-tile:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+.logo-tile:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 /* Critter (tusenbein) */
@@ -775,7 +891,7 @@ body {
 .site-footer {
     margin-top: 60px;
     border-top: 1px solid var(--card-border);
-    background: rgba(10, 13, 16, 0.6);
+    background: rgba(11, 13, 18, 0.6);
 }
 
 .footer-inner {
@@ -962,7 +1078,7 @@ body {
     font-size: 0.82rem;
     color: var(--accent);
     background: var(--accent-dim);
-    border: 1px solid rgba(94, 234, 212, 0.3);
+    border: 1px solid rgba(63, 97, 170, 0.35);
     border-radius: 5px;
     padding: 6px 10px;
 }
