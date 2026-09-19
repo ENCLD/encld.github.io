@@ -231,39 +231,48 @@ body {
 
     background: var(--card-background);
     border: 1px solid var(--card-border-soft);
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 2px 4px var(--card-shadow);
+
     padding: 24px;
     min-width: 0;
 
-    transition: transform 0.2s ease-in-out,
-                box-shadow 0.2s ease-in-out,
-                border-color 0.2s ease-in-out;
+    /* Hele kortet er en lenke */
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out,
+        border-color 0.2s ease-in-out;
 }
 
-/* Beskrivelsen bruker tilgjengelig plass
-   og sentreres vertikalt */
-.project-card .normal-text {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+
+    box-shadow:
+        0 10px 24px var(--card-shadow),
+        0 0 0 1px var(--accent-dim);
 }
 
-/* Lenken ligger alltid nederst */
-.project-card > a {
+.project-card:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+.project-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.project-link {
     margin-top: auto;
     align-self: center;
+
     color: var(--accent);
-    text-decoration: none;
     font-weight: 600;
 }
-
-    .project-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--accent);
-        box-shadow: 0 8px 20px var(--card-shadow);
-    }
 
 .projects-section {
     margin-top: 40px;
@@ -538,18 +547,55 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 22px 10px;
+    gap: 12px;
+    padding: 24px 14px;
+
     background: var(--card-background);
-    border: 1px dashed var(--card-border-soft);
-    border-radius: 10px;
+
+    /* Synlig kant også uten hover */
+    border: 1px solid var(--card-border);
+
+    /* Rundere hjørner */
+    border-radius: 28px;
+
     color: var(--secondary-text);
-    transition: border-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+
+    /* Litt dybde i normal tilstand */
+    box-shadow: 0 3px 10px var(--card-shadow);
+
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease,
+        color 0.22s ease;
 }
 
 .logo-tile:hover {
+    transform: translateY(-4px);
+
+    /* Turkis kant */
     border-color: var(--accent);
+
+    /* Behold mørk bakgrunn */
+    background: var(--card-background);
+
+    /* Diskret turkis glow */
+    box-shadow:
+        0 10px 24px var(--card-shadow),
+        0 0 0 1px var(--accent-dim),
+        0 0 18px var(--accent-dim);
+
     color: var(--accent);
+}
+
+.logo-tile:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+.logo-tile:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 .logo-tile svg {
@@ -564,9 +610,14 @@ body {
     max-width: 150px;
     height: auto;
     max-height: 60px;
+
     object-fit: contain;
+
     background: #fff;
-    border-radius: 6px;
+
+    /* Rundere logo-container */
+    border-radius: 16px;
+
     padding: 8px 14px;
 }
 
@@ -574,6 +625,15 @@ body {
     font-family: var(--mono-font);
     font-size: 0.78rem;
     letter-spacing: 0.04em;
+}
+
+.logo-tile:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+.logo-tile:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 /* Critter (tusenbein) */
@@ -677,12 +737,6 @@ body {
     border: 1px solid var(--card-border-soft);
     border-radius: 10px;
     padding: 22px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
 }
 
 .feature-icon {
