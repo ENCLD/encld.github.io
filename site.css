@@ -73,7 +73,7 @@ body {
 .logo img {
     display: block;
     width: auto;
-    height: 55px;
+    height: 60px;
 }
 
 .nav-links {
@@ -467,13 +467,13 @@ body {
 }
 
 .btn-primary {
-    background: var(--accent);
-    color: #06201b;
-    border-color: var(--accent);
+    color: var(--primary-text);
+    background: transparent;
 }
 
 .btn-primary:hover {
-    box-shadow: 0 0 0 3px var(--accent-dim);
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 .btn-ghost {
