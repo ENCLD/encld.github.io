@@ -538,17 +538,35 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 22px 10px;
+    gap: 12px;
+    padding: 24px 14px;
+
     background: var(--card-background);
-    border: 1px dashed var(--card-border-soft);
-    border-radius: 10px;
+    border: 1px solid var(--card-border-soft);
+    border-radius: 20px;
+
     color: var(--secondary-text);
-    transition: border-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease,
+        background-color 0.22s ease;
 }
 
 .logo-tile:hover {
+    transform: translateY(-4px);
+
     border-color: var(--accent);
+
+    background: rgba(63, 97, 170, 0.06);
+
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.30),
+        0 0 0 1px var(--accent-dim),
+        0 0 20px rgba(63, 97, 170, 0.12);
+
     color: var(--accent);
 }
 
