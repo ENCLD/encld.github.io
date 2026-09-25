@@ -202,11 +202,6 @@ body {
     margin-bottom: 8px;
 }
 
-    .eyebrow::before {
-        content: "// ";
-        color: var(--secondary-text);
-    }
-
 /* content */
 
 .content-container {
