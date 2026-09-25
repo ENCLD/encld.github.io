@@ -12,25 +12,10 @@
 </head>
 
 <body>
-    <nav class="nav-bar">
-        <div class="nav-inner">
-            <a href="index.html" class="logo">1000BYTE</a>
-            <button class="nav-toggle" id="navToggle" type="button" aria-label="&Aring;pne meny" aria-expanded="false" aria-controls="navMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="nav-links" id="navMenu">
-                <a href="index.html" class="active">Hjem</a>
-                <a href="projects.html">Prosjekter</a>
-                <a href="about.html">Om oss</a>
-            </div>
-        </div>
-    </nav>
+    <div id="header"></div>
 
     <main class="content-container">
         <header class="hero">
-            <span class="eyebrow">System online</span>
             <h1 class="hero-title">Velkommen til 1000BYTE</h1>
             <p class="hero-subtitle">Vi er et utviklerteam som bygger og drifter digitale løsninger &mdash; fra backend og infrastruktur til design og sikkerhet.</p>
             <div class="hero-actions">
@@ -54,36 +39,23 @@
 
         <section class="value-section section-panel section-panel--accent">
             <div class="section-divider"><span></span></div>
-            <span class="eyebrow">Fordeler</span>
-            <h2 class="section-title reveal-underline">Hvorfor velge oss</h2>
+            <span class="eyebrow">Hvorfor velge oss</span>
             <p class="section-lead">Vi setter sammen design, utvikling, sikkerhet og infrastruktur i ett team &mdash; slik at dere slipper &aring; koordinere med andre.</p>
 
             <div class="feature-grid">
                 <div class="feature-card">
-                    <span class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>
-                    </span>
                     <h3>Tverrfaglig team</h3>
                     <p>Design, utvikling, sikkerhet og infrastruktur samlet i &eacute;n gruppe, med kort vei mellom fagfeltene.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-                    </span>
                     <h3>Sikkerhet i bunn</h3>
                     <p>Sikkerhet og databehandling er en del av arbeidsflyten fra dag &eacute;n, ikke noe vi legger til i etterkant.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="1" fill="currentColor" stroke="none"/></svg>
-                    </span>
                     <h3>Skalerbar infrastruktur</h3>
                     <p>Vi kobler sammen sky- og lokale l&oslash;sninger, og bygger hosting som kan skaleres etter deres behov.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v10H8l-4 4V5z"/><circle cx="9" cy="10" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="0.6" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="0.6" fill="currentColor" stroke="none"/></svg>
-                    </span>
                     <h3>Tett oppf&oslash;lging</h3>
                     <p>Strukturert samarbeid og tydelig kommunikasjon gjennom hele prosjektet.</p>
                 </div>
@@ -180,36 +152,7 @@
 </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">1000BYTE</a>
-                    <p class="footer-tagline">Utviklerteam som bygger og drifter digitale l&oslash;sninger &mdash; fra infrastruktur til design.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-col">
-                        <h4>Naviger</h4>
-                        <a href="index.html">Hjem</a>
-                        <a href="projects.html">Prosjekter</a>
-                        <a href="about.html">Om oss</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Team</h4>
-                        <a href="profile-arild.html">Arild</a>
-                        <a href="profile-fahrtin.html">Fahrtin</a>
-                        <a href="profile-einar.html">Einar</a>
-                        <a href="profile-jonas.html">Jonas</a>
-                        <a href="profile-emil.html">Emil</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 1000BYTE. Alle rettigheter reservert.</span>
-                <span class="dots"><span></span><span></span><span></span></span>
-            </div>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
     <script src="site.js" defer></script>
 </body>
