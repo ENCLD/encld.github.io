@@ -716,15 +716,9 @@ body {
 
 .feature-card {
     background: var(--card-background);
-    border: 1px solid var(--card-border-soft);
+    border: 1px solid var(--accent);
     border-radius: 10px;
     padding: 22px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
 }
 
 .feature-icon {
@@ -764,9 +758,13 @@ body {
 }
 
 .value-card {
-    padding: 4px 0 4px 16px;
-    border-left: 2px solid var(--card-border-soft);
+    background: var(--card-background);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 22px;
 }
+
+
 
 .value-index {
     font-family: var(--mono-font);
