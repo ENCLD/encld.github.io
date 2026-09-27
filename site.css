@@ -428,8 +428,42 @@ body {
 /* Hero (index) */
 
 .hero {
-    padding: 60px 0 30px;
+    position: relative;
+
+    padding: 100px 30px;
+    min-height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     text-align: center;
+
+    background-image: url("img/background_image2.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Mørkt lag over bakgrunnsbildet */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    z-index: 0;
+}
+
+/* Alt innhold skal ligge foran bakgrunn/overlay */
+.hero > * {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-title {
