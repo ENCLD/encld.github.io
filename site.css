@@ -41,12 +41,13 @@ body {
 
     color: var(--primary-text);
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    padding-top: 64px;
 }
 
 /* Top Menu */
 
 .nav-bar {
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
     width: 100%;
@@ -523,6 +524,23 @@ body {
 .btn-ghost:hover {
     border-color: var(--accent);
     color: var(--accent);
+}
+
+/* Projects page */
+
+.projects-page {
+    background-image: none;
+    background-color: var(--page-color);
+}
+
+.projects-page .hero {
+    background-image: none;
+    min-height: auto;
+    padding: 50px 30px;
+}
+
+.projects-page .hero::before {
+    display: none;
 }
 
 /* Section panels — background + a slight hint of color per section */
