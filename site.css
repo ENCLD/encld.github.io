@@ -470,6 +470,7 @@ body {
     margin: 0;
     font-size: clamp(2rem, 5vw, 3rem);
     color: var(--primary-text);
+    
 }
 
 .hero-subtitle {
@@ -477,6 +478,8 @@ body {
     margin: 14px auto 0;
     color: var(--secondary-text);
     line-height: 1.6;
+
+    transform: translateY(100px);
 }
 
 .hero-actions {
@@ -485,6 +488,8 @@ body {
     justify-content: center;
     margin-top: 28px;
     flex-wrap: wrap;
+
+    transform: translateY(100px);
 }
 
 .btn {
