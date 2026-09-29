@@ -450,17 +450,6 @@ body {
     overflow: hidden;
 }
 
-/* Mørkt lag over bakgrunnsbildet */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.55);
-
-    z-index: 0;
-}
-
 /* Alt innhold skal ligge foran bakgrunn/overlay */
 .hero > * {
     position: relative;
