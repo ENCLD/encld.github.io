@@ -532,6 +532,23 @@ body {
     display: none;
 }
 
+/* About us page */
+
+.about-page {
+    background-image: none;
+    background-color: var(--page-color);
+}
+
+.about-page .hero {
+    background-image: none;
+    min-height: auto;
+    padding: 50px 30px;
+}
+
+.about-page .hero::before {
+    display: none;
+}
+
 /* Section panels — background + a slight hint of color per section */
 
 .section-panel {
