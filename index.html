@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,87 +12,73 @@
 </head>
 
 <body>
-    <nav class="nav-bar">
-        <div class="nav-inner">
-            <a href="index.html" class="logo">1000BYTE</a>
-            <button class="nav-toggle" id="navToggle" type="button" aria-label="&Aring;pne meny" aria-expanded="false" aria-controls="navMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="nav-links" id="navMenu">
-                <a href="index.html" class="active">Hjem</a>
-                <a href="projects.html">Prosjekter</a>
-                <a href="about.html">Om oss</a>
-            </div>
-        </div>
-    </nav>
+    <div id="header"></div>
 
-    <main class="content-container">
+      <main class="content-container">
         <header class="hero">
-            <span class="eyebrow">System online</span>
-            <h1 class="hero-title">Velkommen til 1000BYTE</h1>
-            <p class="hero-subtitle">Vi er et utviklerteam som bygger og drifter digitale løsninger &mdash; fra backend og infrastruktur til design og sikkerhet.</p>
-            <div class="hero-actions">
-                <a href="projects.html" class="btn btn-primary">Se prosjekter</a>
-                <a href="about.html" class="btn btn-ghost">Møt teamet</a>
-            </div>
-            <div class="critter-wrap">
-                <span class="eyebrow">Tusenbein &asymp; 1000BYTE</span>
-                <div class="critter" id="critter" role="img" aria-label="Tusenbein-logo bygget av firkanter &mdash; hold musen over for &aring; f&aring; den til &aring; hoppe">
-                    <span class="critter-square critter-head"></span>
-                    <span class="critter-square"></span>
-                    <span class="critter-square"></span>
-                    <span class="critter-square"></span>
-                    <span class="critter-square"></span>
-                    <span class="critter-square"></span>
-                    <span class="critter-square"></span>
-                    <span class="critter-square"></span>
-                </div>
-            </div>
-        </header>
+
+          <!-- Kommentert ut for å se bilde uten tekst!!
+            <p class="hero-subtitle">
+                Vi er en studentgruppe på fem studenter som har samarbeidet godt gjennom tidligere semestre.
+                Gruppen har stort fokus på god kommunikasjon og samarbeid.
+                Vi utfordrer hverandre faglig og bygger hverandre opp ved å dele kunnskap og erfaringer.
+            </p>-->
+            
+        </header> 
+
+        <section class="video-section section-panel">
+
+    <div class="section-divider">
+        <span></span>
+    </div>
+
+    <span class="eyebrow">Introduksjonsvideo</span>
+
+    <p class="video-lead">
+        Hvem er vi, hvordan jobber vi sammen og hva er våre interesser?
+    </p>
+
+    <div class="video-wrapper">
+        <iframe
+            src="https://www.youtube.com/embed/xXV1sLxr0Pg"
+            title="1000BYTE teamvideo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+</section>
+
+
 
         <section class="value-section section-panel section-panel--accent">
             <div class="section-divider"><span></span></div>
-            <span class="eyebrow">Fordeler</span>
-            <h2 class="section-title reveal-underline">Hvorfor velge oss</h2>
-            <p class="section-lead">Vi setter sammen design, utvikling, sikkerhet og infrastruktur i ett team &mdash; slik at dere slipper &aring; koordinere med andre.</p>
+            <span class="eyebrow">Hvorfor velge oss</span>
+            <p class="section-lead">Vi samarbeider godt og har en god tone oss imellom. Latteren sitter løst, men vi er og seriøse når det kreves. Vi har tro på at et godt arbeidsmiljø fremmer læring!</p>
 
             <div class="feature-grid">
                 <div class="feature-card">
-                    <span class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>
-                    </span>
                     <h3>Tverrfaglig team</h3>
-                    <p>Design, utvikling, sikkerhet og infrastruktur samlet i &eacute;n gruppe, med kort vei mellom fagfeltene.</p>
+                    <p>Design, utvikling, sikkerhet og infrastruktur samlet i &eacute;n gruppe. Vi har et stort fokus på å bygge hverandre opp slik at gruppen blir mer kunnskapsrik.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-                    </span>
-                    <h3>Sikkerhet i bunn</h3>
-                    <p>Sikkerhet og databehandling er en del av arbeidsflyten fra dag &eacute;n, ikke noe vi legger til i etterkant.</p>
+                    <h3>Sikkerhet i tankene</h3>
+                    <p>I dagens samfunn må sikkerhet tas på alvor. Dette er noe vi har i fokus fra dag &eacute;n.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="1" fill="currentColor" stroke="none"/></svg>
-                    </span>
-                    <h3>Skalerbar infrastruktur</h3>
-                    <p>Vi kobler sammen sky- og lokale l&oslash;sninger, og bygger hosting som kan skaleres etter deres behov.</p>
+                    <h3>Bygg for fremtiden</h3>
+                    <p>Vi ser etter løsninger som enkelt lar seg skalere, ved behov.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v10H8l-4 4V5z"/><circle cx="9" cy="10" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="0.6" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="0.6" fill="currentColor" stroke="none"/></svg>
-                    </span>
-                    <h3>Tett oppf&oslash;lging</h3>
-                    <p>Strukturert samarbeid og tydelig kommunikasjon gjennom hele prosjektet.</p>
+                    <h3>Tett oppfølging</h3>
+                    <p>Vår filosofi er er at god og tydelig kommunikasjon er nøkkelen til suksess. Både med interessenter, brukere og ledere i prosjekter.</p>
                 </div>
             </div>
         </section>
 
         <section class="value-section section-panel section-panel--muted">
             <div class="section-divider"><span></span></div>
-            <span class="eyebrow">V&aring;rt fundament</span>
+            <span class="eyebrow">Vårt fundament</span>
 
             <div class="values-grid">
                 <div class="value-card">
@@ -103,12 +89,12 @@
                 <div class="value-card">
                     <span class="value-index"></span>
                     <h3>Samarbeid</h3>
-                    <p>Vi deler kunnskap og utfordrer hverandre for &aring; finne de beste l&oslash;sningene.</p>
+                    <p>Vi deler kunnskap og utfordrer hverandre for å finne de beste løsningene.</p>
                 </div>
                 <div class="value-card">
                     <span class="value-index"></span>
                     <h3>Tydelig kommunikasjon</h3>
-                    <p>Dere skal alltid vite hvor prosjektet st&aring;r, uten teknisk st&oslash;y.</p>
+                    <p>Ærlige tilbakemeldinger og staus på prosjektet er viktig for et godt samarbeid rundt et prosjekt.</p>
                 </div>
                 <div class="value-card">
                     <span class="value-index"></span>
@@ -180,36 +166,7 @@
 </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">1000BYTE</a>
-                    <p class="footer-tagline">Utviklerteam som bygger og drifter digitale l&oslash;sninger &mdash; fra infrastruktur til design.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-col">
-                        <h4>Naviger</h4>
-                        <a href="index.html">Hjem</a>
-                        <a href="projects.html">Prosjekter</a>
-                        <a href="about.html">Om oss</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Team</h4>
-                        <a href="profile-arild.html">Arild</a>
-                        <a href="profile-emil.html">Emil</a>
-                        <a href="profile-fahrtin.html">Fahrtin</a>
-                        <a href="profile-jonas.html">Jonas</a>
-                        <a href="profile-einar.html">Einar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 1000BYTE. Alle rettigheter reservert.</span>
-                <span class="dots"><span></span><span></span><span></span></span>
-            </div>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
     <script src="site.js" defer></script>
 </body>
