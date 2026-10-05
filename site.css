@@ -619,6 +619,21 @@ body {
 
 /* Company logos */
 
+/* Target the link container */
+.logo {
+  padding: 5px 10px;      
+  display: inline-flex;    /* Forces the link to respect padding and height */
+  align-items: center;     /* Perfectly centers the image vertically */
+}
+
+/* Control the image dimensions */
+.logo img {
+  height: 45px;            /* Set preferred logo height in pixels */
+  width: auto;             /* Prevents distortion or squishing */
+}
+
+
+
 .logos-section {
     margin: 50px 0 30px;
     text-align: center;
