@@ -193,6 +193,17 @@ body {
     margin-bottom: 1px;
 }
 
+/*text*/
+
+
+    .about-text-box {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  width: 50%;
+  margin: auto;
+}
+
 /* content */
 
 .content-container {
