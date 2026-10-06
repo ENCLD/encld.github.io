@@ -196,7 +196,7 @@ body {
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 4px;
+    margin-bottom: 1px;
 }
 
 /* Site header */
@@ -619,7 +619,7 @@ body {
     align-items: center;
     gap: 6px;
     justify-content: center;
-    margin: 10px 0 4px;
+    margin: 15px 0 30px;
     color: var(--secondary-text);
 }
 
