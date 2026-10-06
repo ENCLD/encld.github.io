@@ -94,13 +94,18 @@ body {
     }
 
         .nav-links a:hover {
-            color: var(--page-color);
-            background: var(--accent);
+            color: var(--primary-text);
+            background-color: var(--accent);
         }
 
         .nav-links a.active {
-            color: var(--accent);
+            color: var(--primary-text);
+            background-color: var(--accent);
             font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 15px;
+            text-decoration-color: var(--primary-text);
+            text-decoration-thickness: 3px;
         }
 
         .nav-links a.active::after {
@@ -112,7 +117,8 @@ body {
             height: 2px;
             background: var(--accent);
             border-radius: 2px;
-        }
+}
+        
 
 .nav-toggle {
     display: none;
