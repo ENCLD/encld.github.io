@@ -649,37 +649,12 @@ body {
     --panel-tint: rgba(121, 150, 171, 0.10);
 }
 
-/* Section divider */
-
-.section-divider {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    justify-content: center;
-    margin: 15px 0 30px;
-    color: var(--secondary-text);
-}
-
-.section-divider span {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--secondary-color);
-}
-
-.section-divider::before,
-.section-divider::after {
-    content: "";
-    flex: 1;
-    max-width: 120px;
-    height: 1px;
-    background: var(--card-border);
-}
-
 /* Company logos */
 
 .logos-section {
     margin: 50px 0 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     text-align: center;
 }
 
@@ -816,6 +791,8 @@ body {
 
 .value-section {
     margin: 60px 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
     text-align: center;
 }
 
