@@ -613,6 +613,12 @@ body {
     display: none;
 }
 
+/* Om oss: wide team box for big team cards */
+.about-page .content-container {
+    width: calc(100% - 32px);
+    padding: 30px 0 60px;
+}
+
 /* Section panels — background + a slight hint of color per section */
 
 .section-panel {
