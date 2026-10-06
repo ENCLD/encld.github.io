@@ -94,13 +94,18 @@ body {
     }
 
         .nav-links a:hover {
-            color: var(--page-color);
-            background: var(--accent);
+            color: var(--primary-text);
+            background-color: var(--accent);
         }
 
         .nav-links a.active {
-            color: var(--accent);
+            color: var(--primary-text);
+            background-color: var(--accent);
             font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 15px;
+            text-decoration-color: var(--primary-text);
+            text-decoration-thickness: 3px;
         }
 
         .nav-links a.active::after {
@@ -112,7 +117,8 @@ body {
             height: 2px;
             background: var(--accent);
             border-radius: 2px;
-        }
+}
+        
 
 .nav-toggle {
     display: none;
@@ -191,6 +197,33 @@ body {
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 1px;
+}
+
+/* Site header */
+
+.site-title {
+    display: inline-flex;
+    align-items: center;    
+    gap: 12px;
+    font-size: 2rem;        
+}
+
+.title-logo {
+    height: 1.2em;        
+    width: auto;          
+    display: block;
+}
+
+
+/*text*/
+
+
+    .about-text-box {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  width: 50%;
+  margin: auto;
 }
 
 /* content */
@@ -586,7 +619,7 @@ body {
     align-items: center;
     gap: 6px;
     justify-content: center;
-    margin: 10px 0 4px;
+    margin: 15px 0 30px;
     color: var(--secondary-text);
 }
 
@@ -607,6 +640,19 @@ body {
 }
 
 /* Company logos */
+
+/* Target the link container */
+.logo {
+  padding: 5px 10px;      
+  display: inline-flex;    /* Forces the link to respect padding and height */
+  align-items: center;     /* Perfectly centers the image vertically */
+}
+
+/* Control the image dimensions */
+.logo img {
+  height: 45px;            /* Set preferred logo height in pixels */
+  width: auto;             /* Prevents distortion or squishing */
+}
 
 .logos-section {
     margin: 50px 0 30px;
