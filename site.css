@@ -196,8 +196,24 @@ body {
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 1px;
+    margin-bottom: 4px;
 }
+
+/* Site header */
+
+.site-title {
+    display: inline-flex;
+    align-items: center;    
+    gap: 12px;
+    font-size: 2rem;        
+}
+
+.title-logo {
+    height: 1.2em;        
+    width: auto;          
+    display: block;
+}
+
 
 /*text*/
 
