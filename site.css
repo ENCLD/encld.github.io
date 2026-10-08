@@ -136,6 +136,22 @@ body {
         }
 
 
+/* Kontakt oss-knapp i menyen */
+.nav-links a.nav-cta {
+    margin-left: 8px;
+    border: 1px solid var(--accent);
+    color: var(--accent-text);
+    font-weight: 600;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-links a.nav-cta:hover,
+.nav-links a.nav-cta.active {
+    background-color: var(--accent);
+    color: #fff;
+    text-decoration: none;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -234,9 +250,23 @@ body {
 
 /* contact */
 
+.footer-contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-top: 14px;
+}
+
 .contact-text {
     color: var(--accent-text);
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.contact-text:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 /*text*/
@@ -1227,9 +1257,179 @@ body {
     }
 }
 
+/* Contact page */
+
+.btn-solid {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-solid:hover {
+    background: #005a96;
+    border-color: #005a96;
+    color: #fff;
+}
+
+.btn-solid:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: clamp(28px, 5vw, 64px);
+    margin-top: 40px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.contact-title {
+    margin: 0 0 14px;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--primary-text);
+}
+
+.contact-intro .section-lead {
+    margin: 0 0 30px;
+}
+
+.contact-details {
+    display: grid;
+    gap: 18px;
+    margin: 0;
+}
+
+.contact-details dt {
+    font-family: var(--mono-font);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--secondary-text);
+}
+
+.contact-details dd {
+    margin: 4px 0 0;
+    color: var(--primary-text);
+}
+
+.contact-details a {
+    color: var(--accent-text);
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.contact-form {
+    display: grid;
+    gap: 18px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.form-field {
+    display: grid;
+    gap: 6px;
+}
+
+.form-field label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-text);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 11px 13px;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--primary-text);
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.5;
+}
+
+.form-field input:hover,
+.form-field select:hover,
+.form-field textarea:hover {
+    border-color: var(--secondary-color);
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
+    outline: none;
+    border-color: var(--accent-text);
+    box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.form-field [aria-invalid="true"] {
+    border-color: #e5484d;
+}
+
+.field-error {
+    min-height: 1em;
+    margin: 0;
+    font-size: 0.82rem;
+    color: #ff8589;
+}
+
+.form-trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.form-status {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+.form-status.is-success {
+    color: #5bd69a;
+}
+
+.form-status.is-error {
+    color: #ff8589;
+}
+
 /* Mobile */
 
 @media (max-width: 768px) {
+    .contact-layout,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
     .team {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1306,6 +1506,10 @@ body {
     .nav-links a {
         width: 100%;
         text-align: center;
+    }
+
+    .nav-links a.nav-cta {
+        margin: 6px 0 0;
     }
     .projects-container {
         grid-template-columns: 1fr;
