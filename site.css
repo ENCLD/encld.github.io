@@ -1569,6 +1569,7 @@ body {
 
     .nav-links a.nav-cta {
         margin: 6px 0 0;
+        
     }
     .projects-container {
         grid-template-columns: 1fr;
