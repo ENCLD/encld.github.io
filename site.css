@@ -1422,6 +1422,65 @@ body {
     color: #ff8589;
 }
 
+/* Privacy */
+
+.form-privacy {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--secondary-text);
+}
+
+.form-privacy a,
+.footer-legal {
+    color: var(--accent-text);
+    text-underline-offset: 3px;
+}
+
+/* Lenker i personvernteksten i samme blåfarge som Kontakt oss-knappen */
+.legal-page a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.legal-page a:hover {
+    color: var(--accent-text);
+}
+
+.footer-legal {
+    margin-left: 12px;
+}
+
+.legal-page {
+    margin-top: 40px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.legal-page > * {
+    max-width: 68ch;
+}
+
+.legal-page h2 {
+    margin: 32px 0 8px;
+    font-size: 1.1rem;
+    color: var(--primary-text);
+}
+
+.legal-page p {
+    margin: 0 0 12px;
+    line-height: 1.65;
+    color: var(--secondary-text);
+}
+
+.legal-page .legal-updated {
+    font-family: var(--mono-font);
+    font-size: 0.8rem;
+    margin-bottom: 24px;
+}
+
 /* Mobile */
 
 @media (max-width: 768px) {
