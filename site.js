@@ -135,64 +135,19 @@ async function loadLayout() {
 
 
 /* =========================
-   CRITTER
+   CONTACT FORM — WEB3FORMS
    ========================= */
 
 (function () {
-    var critter = document.getElementById("critter");
 
-    if (!critter) return;
-
-    var squares = Array.prototype.slice.call(
-        critter.querySelectorAll(".critter-square")
-    );
-
-    squares.forEach(function (square, i) {
-
-        square.addEventListener("mouseenter", function () {
-
-            squares.forEach(function (other, j) {
-
-                var dist = Math.abs(i - j);
-
-                other.classList.toggle(
-                    "is-jump",
-                    dist === 0
-                );
-
-                other.classList.toggle(
-                    "is-jump-near",
-                    dist === 1
-                );
-            });
-        });
-
-        square.addEventListener("mouseleave", function () {
-
-            squares.forEach(function (other) {
-                other.classList.remove(
-                    "is-jump",
-                    "is-jump-near"
-                );
-            });
-        });
-    });
-})();
-
-
-/* =========================
-   CONTACT FORM
-   ========================= */
-
-(function () {
-    var form = document.getElementById("contactForm");
+    const form = document.getElementById("contactForm");
 
     if (!form) return;
 
-    var statusEl = document.getElementById("contactStatus");
-    var submitBtn = form.querySelector('button[type="submit"]');
+    const statusEl = document.getElementById("contactStatus");
+    const submitBtn = form.querySelector('button[type="submit"]');
 
-    var fields = [
+    const fields = [
         {
             input: document.getElementById("contactName"),
             check: function (value) {
@@ -202,16 +157,22 @@ async function loadLayout() {
         {
             input: document.getElementById("contactEmail"),
             check: function (value) {
-                if (!value) return "Skriv inn e-postadressen din.";
+
+                if (!value) {
+                    return "Skriv inn e-postadressen din.";
+                }
+
                 if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
                     return "E-postadressen ser ikke riktig ut, f.eks. navn@firma.no.";
                 }
+
                 return "";
             }
         },
         {
             input: document.getElementById("contactMessage"),
             check: function (value) {
+
                 return value.length >= 10
                     ? ""
                     : "Skriv en melding på minst 10 tegn.";
@@ -219,119 +180,211 @@ async function loadLayout() {
         }
     ];
 
+
+    /* =========================
+       STATUSMELDINGER
+       ========================= */
+
     function setStatus(text, type) {
+
         statusEl.textContent = text;
-        statusEl.classList.toggle("is-success", type === "success");
-        statusEl.classList.toggle("is-error", type === "error");
+
+        statusEl.classList.toggle(
+            "is-success",
+            type === "success"
+        );
+
+        statusEl.classList.toggle(
+            "is-error",
+            type === "error"
+        );
     }
 
+
+    /* =========================
+       VALIDERING
+       ========================= */
+
     function validateField(field) {
-        var message = field.check(field.input.value.trim());
-        var errorEl = document.getElementById(field.input.id + "Error");
+
+        const message = field.check(
+            field.input.value.trim()
+        );
+
+        const errorEl = document.getElementById(
+            field.input.id + "Error"
+        );
 
         errorEl.textContent = message;
 
         if (message) {
-            field.input.setAttribute("aria-invalid", "true");
-            field.input.setAttribute("aria-describedby", errorEl.id);
+
+            field.input.setAttribute(
+                "aria-invalid",
+                "true"
+            );
+
+            field.input.setAttribute(
+                "aria-describedby",
+                errorEl.id
+            );
+
         } else {
+
             field.input.removeAttribute("aria-invalid");
+            field.input.removeAttribute("aria-describedby");
+
         }
 
         return !message;
     }
 
-    /* Valider feltet når brukeren forlater det, og fjern feilen mens de retter */
+
+    /* =========================
+       VALIDER FELT UNDERVEIS
+       ========================= */
+
     fields.forEach(function (field) {
+
         field.input.addEventListener("blur", function () {
-            if (field.input.value.trim()) validateField(field);
+
+            if (field.input.value.trim()) {
+                validateField(field);
+            }
+
         });
 
         field.input.addEventListener("input", function () {
-            if (field.input.getAttribute("aria-invalid") === "true") {
+
+            if (
+                field.input.getAttribute("aria-invalid")
+                === "true"
+            ) {
                 validateField(field);
             }
+
         });
+
     });
 
-    function openMailClient(data) {
-        var subject = data.emne + " - fra " + data.navn;
-        var body = data.melding + "\n\n" + data.navn + "\n" + data.epost;
 
-        window.location.href =
-            "mailto:" + form.dataset.email +
-            "?subject=" + encodeURIComponent(subject) +
-            "&body=" + encodeURIComponent(body);
+    /* =========================
+       SEND TIL WEB3FORMS
+       ========================= */
 
-        setStatus("E-postprogrammet ditt åpnes med meldingen ferdig utfylt. Trykk send der.", "success");
-    }
+    async function sendToWeb3Forms() {
 
-    async function sendToEndpoint(data) {
         submitBtn.disabled = true;
-        setStatus("Sender …", "");
+        submitBtn.textContent = "Sender...";
+
+        setStatus("Sender meldingen...", "");
+
+        const formData = new FormData(form);
 
         try {
-            var response = await fetch(form.dataset.endpoint, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
 
-            if (!response.ok) throw new Error("Status " + response.status);
+            const response = await fetch(
+                "https://api.web3forms.com/submit",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+            const result = await response.json();
+
+            if (!response.ok || !result.success) {
+                throw new Error(
+                    result.message || "Kunne ikke sende meldingen."
+                );
+            }
+
+            /* Meldingen ble sendt */
 
             form.reset();
-            setStatus("Takk! Meldingen er sendt, vi svarer så fort vi kan.", "success");
+
+            fields.forEach(function (field) {
+
+                field.input.removeAttribute("aria-invalid");
+                field.input.removeAttribute("aria-describedby");
+
+                const errorEl = document.getElementById(
+                    field.input.id + "Error"
+                );
+
+                errorEl.textContent = "";
+
+            });
+
+            setStatus(
+                "Takk! Meldingen er sendt. Vi svarer så fort vi kan.",
+                "success"
+            );
 
         } catch (error) {
-            console.error(error);
+
+            console.error("Web3Forms:", error);
+
             setStatus(
-                "Meldingen ble ikke sendt. Prøv igjen, eller send e-post til " +
-                form.dataset.email + ".",
+                "Meldingen ble ikke sendt. Prøv igjen, eller send e-post til kontakt@1000byte.no.",
                 "error"
             );
+
         } finally {
+
             submitBtn.disabled = false;
+            submitBtn.textContent = "Send melding";
+
         }
+
     }
 
+
+    /* =========================
+       SKJEMA INNSENDING
+       ========================= */
+
     form.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
-        var firstInvalid = null;
+        let firstInvalid = null;
+
+        /* Valider alle feltene */
 
         fields.forEach(function (field) {
+
             if (!validateField(field) && !firstInvalid) {
                 firstInvalid = field.input;
             }
+
         });
 
         if (firstInvalid) {
-            setStatus("Sjekk feltene som er markert.", "error");
+
+            setStatus(
+                "Sjekk feltene som er markert.",
+                "error"
+            );
+
             firstInvalid.focus();
+
             return;
         }
 
-        /* Spam-roboter fyller ut det skjulte feltet */
-        if (form.elements._gotcha.value) return;
+        /* Spam-beskyttelse */
 
-        var data = {
-            navn: form.elements.navn.value.trim(),
-            epost: form.elements.epost.value.trim(),
-            emne: form.elements.emne.value,
-            melding: form.elements.melding.value.trim()
-        };
-
-        if (form.dataset.endpoint) {
-            sendToEndpoint(data);
-        } else {
-            openMailClient(data);
+        if (form.elements.botcheck?.checked) {
+            return;
         }
-    });
-})();
 
+        /* Send skjemaet */
+
+        sendToWeb3Forms();
+
+    });
+
+})();
 
 /* =========================
    START

@@ -42,56 +42,91 @@
                 For å sende direkte fra siden: opprett et skjema hos f.eks. Formspree og legg inn adressen her,
                 f.eks. data-endpoint="https://formspree.io/f/xxxxxxx"
             -->
-            <form class="contact-form"
-                  id="contactForm"
-                  data-email="kontakt@1000byte.no"
-                  data-endpoint=""
-                  novalidate>
+           <form class="contact-form"
+      id="contactForm"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      novalidate>
 
-                <div class="form-row">
-                    <div class="form-field">
-                        <label for="contactName">Navn</label>
-                        <input id="contactName" name="navn" type="text" autocomplete="name" required>
-                        <p class="field-error" id="contactNameError"></p>
-                    </div>
+    <!-- Web3Forms -->
+    <input type="hidden"
+           name="access_key"
+           value="ff44f85e-b980-4d24-963d-3998cca68206">
 
-                    <div class="form-field">
-                        <label for="contactEmail">E-post</label>
-                        <input id="contactEmail" name="epost" type="email" autocomplete="email" required>
-                        <p class="field-error" id="contactEmailError"></p>
-                    </div>
-                </div>
+    <input type="hidden"
+           name="subject"
+           value="Ny henvendelse fra 1000BYTE">
 
-                <div class="form-field">
-                    <label for="contactTopic">Hva gjelder det?</label>
-                    <select id="contactTopic" name="emne">
-                        <option value="Prosjekt eller samarbeid">Prosjekt eller samarbeid</option>
-                        <option value="Praksis">Praksis</option>
-                        <option value="Spørsmål til teamet">Spørsmål til teamet</option>
-                        <option value="Annet">Annet</option>
-                    </select>
-                </div>
+    <input type="hidden"
+           name="from_name"
+           value="1000BYTE kontaktskjema">
 
-                <div class="form-field">
-                    <label for="contactMessage">Melding</label>
-                    <textarea id="contactMessage" name="melding" rows="6" required></textarea>
-                    <p class="field-error" id="contactMessageError"></p>
-                </div>
+    <div class="form-row">
+        <div class="form-field">
+            <label for="contactName">Navn</label>
+            <input id="contactName"
+                   name="name"
+                   type="text"
+                   autocomplete="name"
+                   required>
+            <p class="field-error" id="contactNameError"></p>
+        </div>
 
-                <!-- Skjult felt som fanger opp spam-roboter -->
-                <input class="form-trap" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-field">
+            <label for="contactEmail">E-post</label>
+            <input id="contactEmail"
+                   name="email"
+                   type="email"
+                   autocomplete="email"
+                   required>
+            <p class="field-error" id="contactEmailError"></p>
+        </div>
+    </div>
 
-                <div class="form-actions">
-                    <button class="btn btn-primary btn-solid" type="submit">Send melding</button>
-                    <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
-                </div>
+    <div class="form-field">
+        <label for="contactTopic">Hva gjelder det?</label>
+        <select id="contactTopic" name="emne">
+            <option value="Prosjekt eller samarbeid">Prosjekt eller samarbeid</option>
+            <option value="Praksis">Praksis</option>
+            <option value="Spørsmål til teamet">Spørsmål til teamet</option>
+            <option value="Annet">Annet</option>
+        </select>
+    </div>
 
-                <p class="form-privacy">
-                    Vi bruker opplysningene til å svare deg, og sletter de når saken er ferdig.
-                    Les mer i <a href="personvern.html">personvernerklæringen</a>.
-                </p>
+    <div class="form-field">
+        <label for="contactMessage">Melding</label>
+        <textarea id="contactMessage"
+                  name="message"
+                  rows="6"
+                  required></textarea>
+        <p class="field-error" id="contactMessageError"></p>
+    </div>
 
-            </form>
+    <!-- Spam-beskyttelse -->
+    <input class="form-trap"
+           type="checkbox"
+           name="botcheck"
+           tabindex="-1"
+           autocomplete="off"
+           aria-hidden="true"
+           style="display: none;">
+
+    <div class="form-actions">
+        <button class="btn btn-primary btn-solid" type="submit">
+            Send melding
+        </button>
+        <p class="form-status"
+           id="contactStatus"
+           role="status"
+           aria-live="polite"></p>
+    </div>
+
+    <p class="form-privacy">
+        Vi bruker opplysningene til å svare deg, og sletter dem når saken er ferdig.
+        Les mer i <a href="personvern.html">personvernerklæringen</a>.
+    </p>
+
+</form>
 
         </section>
 
