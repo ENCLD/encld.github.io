@@ -232,6 +232,12 @@ body {
     display: block;
 }
 
+/* contact */
+
+.contact-text {
+    color: var(--accent-text);
+    font-size: 0.75rem;
+}
 
 /*text*/
 
