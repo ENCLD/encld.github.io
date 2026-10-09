@@ -135,50 +135,256 @@ async function loadLayout() {
 
 
 /* =========================
-   CRITTER
+   CONTACT FORM — WEB3FORMS
    ========================= */
 
 (function () {
-    var critter = document.getElementById("critter");
 
-    if (!critter) return;
+    const form = document.getElementById("contactForm");
 
-    var squares = Array.prototype.slice.call(
-        critter.querySelectorAll(".critter-square")
-    );
+    if (!form) return;
 
-    squares.forEach(function (square, i) {
+    const statusEl = document.getElementById("contactStatus");
+    const submitBtn = form.querySelector('button[type="submit"]');
 
-        square.addEventListener("mouseenter", function () {
+    const fields = [
+        {
+            input: document.getElementById("contactName"),
+            check: function (value) {
+                return value ? "" : "Skriv inn navnet ditt.";
+            }
+        },
+        {
+            input: document.getElementById("contactEmail"),
+            check: function (value) {
 
-            squares.forEach(function (other, j) {
+                if (!value) {
+                    return "Skriv inn e-postadressen din.";
+                }
 
-                var dist = Math.abs(i - j);
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                    return "E-postadressen ser ikke riktig ut, f.eks. navn@firma.no.";
+                }
 
-                other.classList.toggle(
-                    "is-jump",
-                    dist === 0
-                );
+                return "";
+            }
+        },
+        {
+            input: document.getElementById("contactMessage"),
+            check: function (value) {
 
-                other.classList.toggle(
-                    "is-jump-near",
-                    dist === 1
-                );
-            });
+                return value.length >= 10
+                    ? ""
+                    : "Skriv en melding på minst 10 tegn.";
+            }
+        }
+    ];
+
+
+    /* =========================
+       STATUSMELDINGER
+       ========================= */
+
+    function setStatus(text, type) {
+
+        statusEl.textContent = text;
+
+        statusEl.classList.toggle(
+            "is-success",
+            type === "success"
+        );
+
+        statusEl.classList.toggle(
+            "is-error",
+            type === "error"
+        );
+    }
+
+
+    /* =========================
+       VALIDERING
+       ========================= */
+
+    function validateField(field) {
+
+        const message = field.check(
+            field.input.value.trim()
+        );
+
+        const errorEl = document.getElementById(
+            field.input.id + "Error"
+        );
+
+        errorEl.textContent = message;
+
+        if (message) {
+
+            field.input.setAttribute(
+                "aria-invalid",
+                "true"
+            );
+
+            field.input.setAttribute(
+                "aria-describedby",
+                errorEl.id
+            );
+
+        } else {
+
+            field.input.removeAttribute("aria-invalid");
+            field.input.removeAttribute("aria-describedby");
+
+        }
+
+        return !message;
+    }
+
+
+    /* =========================
+       VALIDER FELT UNDERVEIS
+       ========================= */
+
+    fields.forEach(function (field) {
+
+        field.input.addEventListener("blur", function () {
+
+            if (field.input.value.trim()) {
+                validateField(field);
+            }
+
         });
 
-        square.addEventListener("mouseleave", function () {
+        field.input.addEventListener("input", function () {
 
-            squares.forEach(function (other) {
-                other.classList.remove(
-                    "is-jump",
-                    "is-jump-near"
-                );
-            });
+            if (
+                field.input.getAttribute("aria-invalid")
+                === "true"
+            ) {
+                validateField(field);
+            }
+
         });
+
     });
-})();
 
+
+    /* =========================
+       SEND TIL WEB3FORMS
+       ========================= */
+
+    async function sendToWeb3Forms() {
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sender...";
+
+        setStatus("Sender meldingen...", "");
+
+        const formData = new FormData(form);
+
+        try {
+
+            const response = await fetch(
+                "https://api.web3forms.com/submit",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+            const result = await response.json();
+
+            if (!response.ok || !result.success) {
+                throw new Error(
+                    result.message || "Kunne ikke sende meldingen."
+                );
+            }
+
+            /* Meldingen ble sendt */
+
+            form.reset();
+
+            fields.forEach(function (field) {
+
+                field.input.removeAttribute("aria-invalid");
+                field.input.removeAttribute("aria-describedby");
+
+                const errorEl = document.getElementById(
+                    field.input.id + "Error"
+                );
+
+                errorEl.textContent = "";
+
+            });
+
+            setStatus(
+                "Takk! Meldingen er sendt. Vi svarer så fort vi kan.",
+                "success"
+            );
+
+        } catch (error) {
+
+            console.error("Web3Forms:", error);
+
+            setStatus(
+                "Meldingen ble ikke sendt. Prøv igjen, eller send e-post til kontakt@1000byte.no.",
+                "error"
+            );
+
+        } finally {
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send melding";
+
+        }
+
+    }
+
+
+    /* =========================
+       SKJEMA INNSENDING
+       ========================= */
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        let firstInvalid = null;
+
+        /* Valider alle feltene */
+
+        fields.forEach(function (field) {
+
+            if (!validateField(field) && !firstInvalid) {
+                firstInvalid = field.input;
+            }
+
+        });
+
+        if (firstInvalid) {
+
+            setStatus(
+                "Sjekk feltene som er markert.",
+                "error"
+            );
+
+            firstInvalid.focus();
+
+            return;
+        }
+
+        /* Spam-beskyttelse */
+
+        if (form.elements.botcheck?.checked) {
+            return;
+        }
+
+        /* Send skjemaet */
+
+        sendToWeb3Forms();
+
+    });
+
+})();
 
 /* =========================
    START
