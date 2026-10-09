@@ -135,7 +135,6 @@ body {
             text-decoration-thickness: 3px;
         }
 
-
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -205,42 +204,37 @@ body {
     font-style: normal;
 }
 
-.eyebrow {
+/* Shared headings: same light-blue label look on every page */
+
+.page-title,
+.section-heading {
     display: block;
-    margin-top: 0;
-    font-weight: 400;
+    margin: 20px 0 14px;
     font-family: var(--mono-font);
     font-size: 1rem;
+    font-weight: 400;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+    text-align: center;
     color: var(--accent-text);
-    margin-bottom: 12px;
+}
+
+.section-heading {
+    margin-top: 0;
+}
+
+/* Front page headline */
+
+.intro-title {
+    margin: 20px 0 14px;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    line-height: 1.25;
+    color: var(--primary-text);
 }
 
 /* Site header */
 
-.site-title {
-    display: inline-flex;
-    align-items: center;    
-    gap: 12px;
-    font-size: 2rem;        
-}
-
-.title-logo {
-    height: 1.2em;        
-    width: auto;          
-    display: block;
-}
-
-
 /*text*/
-
-
-.about-title {
-    margin: 10px 0 8px;
-    font-size: 1.17rem;
-    text-align: center;
-}
 
 .about-text-box {
     max-width: 62ch;
@@ -319,7 +313,16 @@ body {
     }
 
 .projects-section {
-    margin-top: 40px;
+    margin: 40px 0;
+    padding-top: 40px;
+    padding-bottom: 48px;
+}
+
+/* Prosjekter: boksen står midt mellom menyen og footeren */
+.projects-page .content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* team */
@@ -579,39 +582,7 @@ body {
     color: var(--accent);
 }
 
-/* Projects page */
-
-.projects-page {
-    background-image: none;
-    background-color: var(--page-color);
-}
-
-.projects-page .hero {
-    background-image: none;
-    aspect-ratio: auto;
-    padding: 50px 30px;
-}
-
-.projects-page .hero::before {
-    display: none;
-}
-
-/* About us page */
-
-.about-page {
-    background-image: none;
-    background-color: var(--page-color);
-}
-
-.about-page .hero {
-    background-image: none;
-    aspect-ratio: auto;
-    padding: 50px 30px;
-}
-
-.about-page .hero::before {
-    display: none;
-}
+/* Om oss page */
 
 /* Om oss: wide team box for big team cards */
 .about-page .content-container {
@@ -870,8 +841,6 @@ body {
     padding: 22px;
 }
 
-
-
 .value-index {
     font-family: var(--mono-font);
     color: var(--accent-text);
@@ -1013,6 +982,10 @@ body {
 .breadcrumb a {
     color: var(--secondary-text);
     text-decoration: none;
+}
+
+.breadcrumb-current {
+    color: var(--accent-text);
 }
 
 .breadcrumb a:hover {
@@ -1174,7 +1147,7 @@ body {
 /* Team video */
 
 .video-section {
-    padding: 50px 0 70px;
+    padding: 30px 0 70px;
     text-align: center;
 }
 
@@ -1210,8 +1183,6 @@ body {
     height: 100%;
     border: 0;
 }
-
-
 
 /* Tablet */
 
