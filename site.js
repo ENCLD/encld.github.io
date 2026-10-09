@@ -3,11 +3,13 @@
    ========================= */
 
 async function loadComponent(id, file) {
+
     var target = document.getElementById(id);
 
     if (!target) return;
 
     try {
+
         var response = await fetch(file);
 
         if (!response.ok) {
@@ -15,11 +17,13 @@ async function loadComponent(id, file) {
         }
 
         var html = await response.text();
+
         target.innerHTML = html;
 
     } catch (error) {
         console.error(error);
     }
+
 }
 
 
@@ -28,22 +32,28 @@ async function loadComponent(id, file) {
    ========================= */
 
 function setupNavigation() {
+
     var toggle = document.querySelector(".nav-toggle");
     var menu = document.getElementById("navMenu");
 
     if (!toggle || !menu) return;
 
     function closeMenu() {
+
         menu.classList.remove("is-open");
         toggle.classList.remove("is-active");
         toggle.setAttribute("aria-expanded", "false");
+
     }
 
     toggle.addEventListener("click", function () {
+
         var isOpen = menu.classList.toggle("is-open");
 
         toggle.classList.toggle("is-active", isOpen);
+
         toggle.setAttribute("aria-expanded", String(isOpen));
+
     });
 
     menu.querySelectorAll("a").forEach(function (link) {
@@ -51,10 +61,13 @@ function setupNavigation() {
     });
 
     document.addEventListener("keydown", function (event) {
+
         if (event.key === "Escape") {
             closeMenu();
         }
+
     });
+
 }
 
 
@@ -63,12 +76,14 @@ function setupNavigation() {
    ========================= */
 
 function setupActiveNavigation() {
+
     var currentPage =
         window.location.pathname.split("/").pop() || "index.html";
 
     var navLinks = document.querySelectorAll(".nav-links a");
 
     navLinks.forEach(function (link) {
+
         link.classList.remove("active");
 
         var linkPage = link.getAttribute("href");
@@ -76,17 +91,22 @@ function setupActiveNavigation() {
         if (linkPage === currentPage) {
             link.classList.add("active");
         }
+
     });
 
     /* Profilsidene tilhører Om oss */
+
     if (currentPage.startsWith("profile-")) {
+
         var aboutLink =
             document.querySelector('.nav-links a[href="about.html"]');
 
         if (aboutLink) {
             aboutLink.classList.add("active");
         }
+
     }
+
 }
 
 
@@ -103,8 +123,10 @@ async function loadLayout() {
        Navbar finnes først etter at header.html
        er ferdig lastet.
     */
+
     setupNavigation();
     setupActiveNavigation();
+
 }
 
 
@@ -113,17 +135,22 @@ async function loadLayout() {
    ========================= */
 
 (function () {
+
     var targets = document.querySelectorAll(".reveal-underline");
 
     if (!targets.length || !("IntersectionObserver" in window)) return;
 
     var observer = new IntersectionObserver(function (entries) {
+
         entries.forEach(function (entry) {
+
             entry.target.classList.toggle(
                 "in-view",
                 entry.isIntersecting
             );
+
         });
+
     }, {
         threshold: 0.6
     });
@@ -131,6 +158,7 @@ async function loadLayout() {
     targets.forEach(function (el) {
         observer.observe(el);
     });
+
 })();
 
 
@@ -145,17 +173,56 @@ async function loadLayout() {
     if (!form) return;
 
     const statusEl = document.getElementById("contactStatus");
+
     const submitBtn = form.querySelector('button[type="submit"]');
 
+
+    /* =========================
+       CAPTCHA
+       ========================= */
+
+    let isSending = false;
+
+    function captchaVerified() {
+
+        const captchaResponse = form.querySelector(
+            '[name="h-captcha-response"]'
+        );
+
+        return Boolean(
+            captchaResponse &&
+            captchaResponse.value.trim() !== ""
+        );
+
+    }
+
+    function updateSubmitButton() {
+
+        submitBtn.disabled = isSending || !captchaVerified();
+
+    }
+
+    // Knappen skal være deaktivert ved oppstart
+    updateSubmitButton();
+
+    // Kontroller CAPTCHA-status fortløpende
+    // Dette fanger også opp utløpt eller nullstilt CAPTCHA
+    setInterval(updateSubmitButton, 300);
+
+
     const fields = [
+
         {
             input: document.getElementById("contactName"),
+
             check: function (value) {
                 return value ? "" : "Skriv inn navnet ditt.";
             }
         },
+
         {
             input: document.getElementById("contactEmail"),
+
             check: function (value) {
 
                 if (!value) {
@@ -167,17 +234,22 @@ async function loadLayout() {
                 }
 
                 return "";
+
             }
         },
+
         {
             input: document.getElementById("contactMessage"),
+
             check: function (value) {
 
                 return value.length >= 10
                     ? ""
                     : "Skriv en melding på minst 10 tegn.";
+
             }
         }
+
     ];
 
 
@@ -198,6 +270,7 @@ async function loadLayout() {
             "is-error",
             type === "error"
         );
+
     }
 
 
@@ -237,6 +310,7 @@ async function loadLayout() {
         }
 
         return !message;
+
     }
 
 
@@ -274,7 +348,9 @@ async function loadLayout() {
 
     async function sendToWeb3Forms() {
 
-        submitBtn.disabled = true;
+        isSending = true;
+        updateSubmitButton();
+
         submitBtn.textContent = "Sender...";
 
         setStatus("Sender meldingen...", "");
@@ -294,9 +370,11 @@ async function loadLayout() {
             const result = await response.json();
 
             if (!response.ok || !result.success) {
+
                 throw new Error(
                     result.message || "Kunne ikke sende meldingen."
                 );
+
             }
 
             /* Meldingen ble sendt */
@@ -316,6 +394,23 @@ async function loadLayout() {
 
             });
 
+
+            /* =========================
+               NULLSTILL CAPTCHA
+               ========================= */
+
+            if (
+                typeof window.hcaptcha !== "undefined" &&
+                typeof window.hcaptcha.reset === "function"
+            ) {
+
+                window.hcaptcha.reset();
+
+            }
+
+            updateSubmitButton();
+
+
             setStatus(
                 "Takk! Meldingen er sendt. Vi svarer så fort vi kan.",
                 "success"
@@ -332,8 +427,11 @@ async function loadLayout() {
 
         } finally {
 
-            submitBtn.disabled = false;
+            isSending = false;
+
             submitBtn.textContent = "Send melding";
+
+            updateSubmitButton();
 
         }
 
@@ -370,7 +468,9 @@ async function loadLayout() {
             firstInvalid.focus();
 
             return;
+
         }
+
 
         /* Spam-beskyttelse */
 
@@ -378,13 +478,35 @@ async function loadLayout() {
             return;
         }
 
+
+        /* =========================
+           KONTROLLER CAPTCHA
+           ========================= */
+
+        if (!captchaVerified()) {
+
+            setStatus(
+                "Bekreft at du ikke er en robot før du sender meldingen.",
+                "error"
+            );
+
+            updateSubmitButton();
+
+            return;
+
+        }
+
+
         /* Send skjemaet */
 
-        sendToWeb3Forms();
+        if (!isSending) {
+            sendToWeb3Forms();
+        }
 
     });
 
 })();
+
 
 /* =========================
    START

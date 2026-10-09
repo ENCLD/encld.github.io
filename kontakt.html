@@ -111,15 +111,25 @@
            aria-hidden="true"
            style="display: none;">
 
-    <div class="form-actions">
-        <button class="btn btn-primary btn-solid" type="submit">
-            Send melding
-        </button>
-        <p class="form-status"
-           id="contactStatus"
-           role="status"
-           aria-live="polite"></p>
-    </div>
+<!-- CAPTCHA: Bekreft at du ikke er en robot -->
+<div class="form-field">
+    <div class="h-captcha"
+         data-captcha="true"></div>
+</div>
+
+<div class="form-actions">
+    <button class="btn btn-primary btn-solid"
+            id="contactSubmit"
+            type="submit"
+            disabled>
+        Send melding
+    </button>
+
+    <p class="form-status"
+       id="contactStatus"
+       role="status"
+       aria-live="polite"></p>
+</div>
 
     <p class="form-privacy">
         Vi bruker opplysningene til å svare deg, og sletter dem når saken er ferdig.
@@ -129,7 +139,7 @@
 </form>
 
         </section>
-
+        <script src="https://web3forms.com/client/script.js" async defer></script>
     </main>
 
     <div id="footer"></div>
