@@ -40,7 +40,7 @@ html {
     --accent-dim: rgba(0, 113, 188, 0.16);
     --background-color: #0a0d10;
     --primary-text: #e4e7ea;
-    --secondary-text: #8a94a0;
+    --secondary-text: rgba(252, 252, 252, 0.658);
     --card-background: #14191e;
     --card-border: #232a30;
     --card-border-soft: rgba(255, 255, 255, 0.06);
@@ -48,6 +48,7 @@ html {
     --page-color: #0c0f12;
     --panel-background: #10141a;
     --mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --panel-accent: #138fe2;
 }
 
 body {
@@ -649,7 +650,7 @@ body {
 }
 
 .section-panel--accent {
-    --panel-tint: rgba(0, 113, 188, 0.12);
+    --panel-tint: var(--panel-accent);
 }
 
 .section-panel--muted {
@@ -679,8 +680,6 @@ body {
     justify-content: center;
     gap: 12px;
     padding: 24px 14px;
-
-    background: var(--card-background);
     border: 1px solid var(--card-border-soft);
     border-radius: 20px;
 
