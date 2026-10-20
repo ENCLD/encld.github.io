@@ -38,15 +38,15 @@ html {
     --accent: #0071bc;
     --accent-text: #4aa8ec;
     --accent-dim: rgba(0, 113, 188, 0.16);
-    --background-color: #0a0d10;
+    --background-color: #37597d;
     --primary-text: #e4e7ea;
     --secondary-text: #8a94a0;
-    --card-background: #14191e;
+    --card-background: #212545;
     --card-border: #232a30;
     --card-border-soft: rgba(255, 255, 255, 0.06);
     --card-shadow: rgba(0, 0, 0, 0.35);
     --page-color: #0c0f12;
-    --panel-background: #10141a;
+    --panel-background: #1e294fb3;
     --mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
@@ -55,12 +55,11 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-
-    background-color: var(--page-color);
+    background-color: #37597d;
     background-image:
-        radial-gradient(circle, rgba(0, 113, 188, 0.14) 1px, transparent 1.2px),
-        linear-gradient(90deg, rgba(121, 150, 171, 0.025) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(121, 150, 171, 0.025) 1px, transparent 1px);
+        radial-gradient(circle, rgb(125 125 125) 1px, transparent 1.2px), 
+        linear-gradient(90deg, rgb(255 255 255 / 8%) 1px, transparent 1px), 
+        linear-gradient(0deg, rgb(252 252 252 / 9%) 1px, transparent 1px);
     background-size: 32px 32px, 32px 32px, 32px 32px;
     background-position: 0 0, 0 0, 0 0;
     background-attachment: fixed;
@@ -708,8 +707,6 @@ body {
     justify-content: center;
     gap: 12px;
     padding: 24px 14px;
-
-    background: var(--card-background);
     border: 1px solid var(--card-border-soft);
     border-radius: 20px;
 
